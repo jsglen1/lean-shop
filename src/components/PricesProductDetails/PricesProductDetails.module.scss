@@ -1,0 +1,33 @@
+@import '../../styles/BreakPoints.module';
+@import '../../styles//shared.module';
+
+.container_prices {
+  margin-top: 0.5rem;
+  text-align: start;
+  align-items: center;
+  @include mixin_div_row()
+}
+
+.text_price_discount {
+  color: $color-blue;
+  font-size: $font-size-xl;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.text_price {
+  color: $color-secundary;
+  font-size: $font-size-md;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: line-through;
+}
+
+.text_discount {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  line-height: 20px;
+  background-color: $color-yellow;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.1rem;
+}

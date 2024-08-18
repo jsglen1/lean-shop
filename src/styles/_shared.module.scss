@@ -1,0 +1,74 @@
+$border-radius-shared: 0.2rem;    
+
+$color-secundary: #5F6C72;
+$color-green: #27a864;
+$color-black: #191C1F;
+$color-blue: #2DA5F3;
+$color-yellow: #EFD33D;
+$color-orange: #FA8232;
+$color-gray: #E4E7E9;
+$color-white: #FFFFFF;
+
+$font-size-xl: 24px;
+$font-size-lg: 20px;
+$font-size-md: 18px;
+$font-size-sm: 14px;
+$font-size-xs: 10px;
+
+.fontSizeSm {
+  font-size: $font-size-sm;
+}
+
+.colorSecundary {
+  color: $color-secundary;
+}
+
+.text_color_secundary {
+  color: $color-secundary;
+  font-size: $font-size-sm;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+ @mixin text-style($color) {
+  color: $color;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+}
+
+.text_color_black {
+  @include text-style($color-black);
+}
+
+.text_color_green {
+  @include text-style($color-green); 
+}
+
+.text_big {
+  font-size: $font-size-lg;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+}
+
+@mixin mixin_div_row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.div_row {
+  @include mixin_div_row()
+}
+
+@mixin mixin_hover_opacity($opacity: 0.7, $transition-duration: 0.5s) {
+  cursor: pointer;
+  transition: opacity $transition-duration ease;
+  
+  &:hover {
+    opacity: $opacity;
+  }
+}

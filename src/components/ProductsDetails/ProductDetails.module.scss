@@ -1,0 +1,17 @@
+@import '../../styles/shared.module';
+
+.space_betwwen_div {
+  display: flex;
+  flex-direction: row;
+  font-size: $font-size-sm;
+  line-height: 20px;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 0.4rem;
+  }
+  
+}

@@ -1,0 +1,4 @@
+export const BUTTONS_PRODUCT_DETAILS = {
+  ADD_TO_CART:'ADD TO CART',
+  BUY_NOW: 'BUY_NOW'
+}

@@ -1,0 +1,76 @@
+@import "../../styles/shared.module";
+@import "../../styles/BreakPoints.module";
+
+.div_container {
+  @include mixin_div_row()
+}
+
+.div_amount {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: $border-radius-shared;
+  border: 1px solid $color-gray;
+}
+
+.div_cart {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: $border-radius-shared;
+  border: 2px solid $color-orange;
+  color: $color-orange;
+  background-color: $color-orange;
+  color: $color-white;
+  gap: 0.5rem;
+
+  @media (max-width: $breakpoint-md) { 
+    font-size: $font-size-xs;
+  }
+
+  @include mixin_hover_opacity(0.9,0.3s); //default 0.5, 0.3s
+}
+
+.i {
+  display: flex;
+  width: 2rem;
+  height: 1.2rem;
+  position: relative;
+
+  @media (max-width: $breakpoint-md) { 
+    width: 1rem;
+    height: 1rem;
+ 
+  }
+
+}
+
+.div_purchase {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  justify-content: center;
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: $border-radius-shared;
+  border: 2px solid $color-orange;
+  color: $color-orange;
+
+  @media (max-width: $breakpoint-md) { 
+    font-size: $font-size-xs;
+  }
+  
+  @include mixin_hover_opacity(); 
+}
+
+.add_to_cart {
+  @media (max-width: $breakpoint-md) { 
+    padding-top: 2px;
+  }
+}
