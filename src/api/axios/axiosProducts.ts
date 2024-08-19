@@ -1,6 +1,6 @@
 import axios from "axios";
-import { URL_PRODUCTS } from "./constans/urls";
-import { headers } from "./constans/headers";
+import { URL_PRODUCTS } from '../constans/urls';
+import { headers } from '../constans/headers';
 
 export const getProducts = async () => {
   try {

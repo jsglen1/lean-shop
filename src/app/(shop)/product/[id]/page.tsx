@@ -3,7 +3,6 @@ export const dynamic = "force-dynamic";
 import React from "react";
 import styles from "./Product.id.module.scss";
 import { IProduct } from "@/types/IProducts";
-import { getProduct } from "@/api/axiosProducts";
 import Image from "next/image";
 import SharedStyles from "@/styles/_shared.module.scss";
 import ProductDetails from "@/components/ProductsDetails";
@@ -14,6 +13,7 @@ import {
 } from "@/constans/product-detail";
 import ButtonsProductDetails from "@/components/ButtonsProductDetails";
 import PricesProductDetails from "@/components/PricesProductDetails";
+import { getProduct } from '@/api/axios/axiosProducts';
 
 type ProductDetailProps = {
   params: {
@@ -26,8 +26,8 @@ const ProductDetail = async ({ params }: ProductDetailProps) => {
   const data = (await getProduct(id)) as IProduct;
 
   return (
-    <div>
-      <div className={styles.container_main}>
+    <>
+      <div className={SharedStyles.container_main}>
         <div className={styles.container_img}>
           <i className={styles.i}>
             <Image
@@ -46,7 +46,7 @@ const ProductDetail = async ({ params }: ProductDetailProps) => {
             <strong className={SharedStyles.fontSizeSm}>
               {data.rating} {PRODUCT_DETAILS.START_RATING}
             </strong>
-            <p className={styles.text_user_feedback}>
+            <p className={SharedStyles.text_user_feedback}>
               {` (${data.reviews_number} ${PRODUCT_DETAILS.USER_FEEDBACK})`}
             </p>
           </div>
@@ -60,7 +60,7 @@ const ProductDetail = async ({ params }: ProductDetailProps) => {
           <ButtonsProductDetails product={data} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

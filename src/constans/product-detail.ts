@@ -1,20 +1,20 @@
-import { Info } from '@/components/ProductsDetails';
+import { Info } from "@/components/ProductsDetails";
 
 export const INFO_FIRST: Info = {
-  first: "sku",
   first_value: "A264671",
-  second: "Availablety",
+  first: "sku",
   second_value: "In Stock",
+  second: "Availablety",
 };
 
 export const INFO_SECOND: Info = {
-  first: "branch",
   first_value: "apple",
-  second: "category",
+  first: "branch",
   second_value: "electronics devices",
+  second: "category",
 };
 
 export const PRODUCT_DETAILS = {
-  START_RATING: 'Start Rating',
-  USER_FEEDBACK: 'User Feedback',
-}
+  START_RATING: "Start Rating",
+  USER_FEEDBACK: "User Feedback",
+};

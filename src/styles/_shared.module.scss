@@ -1,4 +1,6 @@
-$border-radius-shared: 0.2rem;    
+@import '../styles//BreakPoints.module';
+
+$border-radius-shared: 0.2rem;
 
 $color-secundary: #5F6C72;
 $color-green: #27a864;
@@ -8,11 +10,14 @@ $color-yellow: #EFD33D;
 $color-orange: #FA8232;
 $color-gray: #E4E7E9;
 $color-white: #FFFFFF;
+$color-label-product: #475156;
+
 
 $font-size-xl: 24px;
 $font-size-lg: 20px;
 $font-size-md: 18px;
 $font-size-sm: 14px;
+$font-size-cart: 12px;
 $font-size-xs: 10px;
 
 .fontSizeSm {
@@ -31,7 +36,7 @@ $font-size-xs: 10px;
   text-align: left;
 }
 
- @mixin text-style($color) {
+@mixin text-style($color) {
   color: $color;
   font-size: $font-size-sm;
   font-weight: 600;
@@ -44,7 +49,7 @@ $font-size-xs: 10px;
 }
 
 .text_color_green {
-  @include text-style($color-green); 
+  @include text-style($color-green);
 }
 
 .text_big {
@@ -67,8 +72,102 @@ $font-size-xs: 10px;
 @mixin mixin_hover_opacity($opacity: 0.7, $transition-duration: 0.5s) {
   cursor: pointer;
   transition: opacity $transition-duration ease;
-  
+
   &:hover {
     opacity: $opacity;
   }
+}
+
+.container_main {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    margin: 0 1rem;
+  }
+}
+
+.i {
+  display: flex;
+  width: 2rem;
+  height: 1.2rem;
+  position: relative;
+
+  @media (max-width: $breakpoint-md) {
+    width: 1rem;
+    height: 1rem;
+
+  }
+}
+
+@mixin mixin_div_amount() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: $border-radius-shared;
+  border: 1px solid $color-gray;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+@mixin mixin_container_label() {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: $font-size-cart;
+  font-weight: 500;
+  line-height: 18px;
+  color: $color-label-product;
+  gap: 0.2rem;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-xs;
+
+  }
+}
+
+._45 {
+  width: 45%;
+  padding: 0 0.5rem;
+  @include mixin_container_label();
+}
+
+._15 {
+  width: 15%;
+  padding: 0 0.5rem;
+  @include mixin_container_label();
+}
+
+._20 {
+  width: 20%;
+  padding: 0 0.5rem;
+  @include mixin_container_label();
+}
+
+.text_discount {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  line-height: 20px;
+  background-color: $color-yellow;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.1rem;
+}
+
+.text_user_feedback {
+  font-size: $font-size-sm;
+  color: $color-secundary;
+}
+
+.text_summary {
+  font-size: $font-size-sm;
+  font-weight: 400;
+  line-height: 20px;
+  color: $color-secundary;
 }

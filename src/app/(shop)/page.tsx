@@ -1,85 +1,67 @@
 export const dynamic = "force-dynamic";
-
-import { getProducts } from "@/api/axiosProducts";
 import { IProducts } from "@/types/IProducts";
 import React from "react";
 import { HOME_PAGE } from "@/constans/home-page";
 import styles from "./HomePage.module.scss";
-import Card from "@/ui/Card";
-import Image from 'next/image'
+import { getProducts } from "@/api/axios/axiosProducts";
+import Image from "next/image";
+import ProductMainButton from "@/components/ProductMainButton";
+import SharedStyles from "../../styles/_shared.module.scss";
+import PriceDiscount from "@/components/PriceDiscount";
+import PricesProductDetails from "@/components/PricesProductDetails";
 
 const Homepage = async () => {
   const data = (await getProducts()) as IProducts;
 
   return (
-    <div>
+    <>
       <h2 className={styles.title}>{HOME_PAGE.TITLE}</h2>
-      <Card>
-        {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-        <div className={styles.main_product}>
-          <i className={styles.product_img_container}>
-            <span className={styles.discount}>32% OFF</span>
-            <Image src={data[0].image} alt={data[0].image} 
-            width={280}
-            height={268}
+      <div className={styles.div_wrap}>
+        <div className={styles.container_big_product}>
+          <PriceDiscount discount={data[0].discount} />
+          <i className={styles.i}>
+            <Image
+              src={data[0].image}
+              alt={data[0].image}
+              fill
+              sizes="90vw"
+              priority
+              style={{ objectFit: "contain" }}
             />
           </i>
-          <div className={styles.info_container}>
-              <div className={styles.qualification_container}>
-                  <div className={styles.stars_container}>
-                  <Image src={data[0].image} alt={data[0].image} height={20} width={20}/>
-                  <Image src={data[0].image} alt={data[0].image} height={20} width={20}/>
-                  <Image src={data[0].image} alt={data[0].image} height={20} width={20}/>
-                  <Image src={data[0].image} alt={data[0].image} height={20} width={20}/>
-                  <Image src={data[0].image} alt={data[0].image} height={20} width={20}/>
-                  <small> (52,677)</small>
-                  </div>
-                  <p>Xbox Series S - 512GB SSD Console with Wireless Controller - EU Versio...</p>
-              </div>
-
-              <p className={styles.price_container}><span>$865.99</span><strong>$442.12</strong></p>
-
-              <p className={styles.description}>Games built using the Xbox Series X|S development kit showcase unparalleled load times, visuals.</p>
-
-              <button>
-                <Image src={data[0].image} alt={data[0].image} height={20} width={20}/>
-                ADD TO CARD
-              </button>
-          </div>
+          <p className={SharedStyles.text_user_feedback}>
+            ({data[0].reviews_number})
+          </p>
+          <p className={SharedStyles.text_big}>{data[0].name}</p>
+          <PricesProductDetails product={data[0]} showPercentage={false} />
+          <p className={SharedStyles.text_summary}>{data[0].summary}</p>
+          <ProductMainButton product={data[0]} />
         </div>
-        <div className={styles.products_container}>
-          <div className={styles.up_row}>
 
-            {
-              [1,2,3,4].map((item) =>(
-                <div key={item} className={styles.product_item}>
-                  <Image src={data[0].image} alt={data[0].image} height={216} width={188}/>
-                  <div>
-                    <p>Bose Sport Earbuds - Wireless Earphones - Bluetooth In Ear...</p>
-                    <p>$865.99</p>
-                  </div>
-              </div>
-              ))
-            }
-
-          </div>
-
-          <div className={styles.bottom_row}>
-            {
-                [1,2,3,4].map((item) =>(
-                  <div key={item} className={styles.product_item}>
-                    <Image src={data[0].image} alt={data[0].image} height={216} width={188}/>
-                    <div>
-                      <p>Bose Sport Earbuds - Wireless Earphones - Bluetooth In Ear...</p>
-                      <p>$865.99</p>
-                    </div>
-                </div>
-                ))
-              }
-          </div>
+        <div className={styles.container_small_products}>
+          {data.slice(1).map((element) => (
+            <div
+              className={styles.container_each_small_product}
+              key={element.id}
+            >
+              <PriceDiscount discount={element.discount} />
+              <i className={styles.i_small}>
+                <Image
+                  src={element.image}
+                  alt={element.image}
+                  fill
+                  sizes="90vw"
+                  priority
+                  style={{ objectFit: "contain" }}
+                />
+              </i>
+              <p className={styles.text_name_product_small}>{element.name}</p>
+              <PricesProductDetails product={element} showPercentage={false} />
+            </div>
+          ))}
         </div>
-      </Card>
-    </div>
+      </div>
+    </>
   );
 };
 

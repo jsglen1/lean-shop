@@ -1,0 +1,19 @@
+@import "../../styles/shared.module";
+
+.div_container {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.div_spam {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: $color-white;
+  color: $color-black;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: $font-size-cart;
+  font-weight: bold;
+}

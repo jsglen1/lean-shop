@@ -1,5 +1,4 @@
 export const headers = {
-  'Content-Type': 'application/json',  
-  // 'Authorization': 'Bearer YOUR_TOKEN_HERE', 
-  'Access-Control-Allow-Origin': '*',  
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*', 
 };

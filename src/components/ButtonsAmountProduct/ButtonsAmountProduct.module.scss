@@ -1,0 +1,18 @@
+@import "../../styles/shared.module";
+@import "../../styles/BreakPoints.module";
+
+.div_amount {
+  @include mixin_div_amount()
+}
+
+.i {
+  display: flex;
+  width: 2rem;
+  height: 1.2rem;
+  position: relative;
+
+  @media (max-width: $breakpoint-md) { 
+    width: 1rem;
+    height: 1rem;
+  }
+}

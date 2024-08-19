@@ -1,0 +1,48 @@
+@import '../../styles/BreakPoints.module';
+@import '../../styles/shared.module';
+
+.div_products_cart {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.i_cancel_product {
+  display: flex;
+  width: 2rem;
+  height: 1.2rem;
+  position: relative;
+
+  @media (max-width: $breakpoint-md) {
+    width: 1rem;
+    height: 1rem;
+
+  }
+}
+
+.i_img_product {
+  display: flex;
+  width: 4rem;
+  height: 3rem;
+  position: relative;
+
+  @media (max-width: $breakpoint-md) {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.p_name {
+  font-size: $font-size-sm;
+  font-weight: 400;
+  line-height: 20px;
+  color: $color-black;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: calc(50ch);
+
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-xs;
+  }
+}
